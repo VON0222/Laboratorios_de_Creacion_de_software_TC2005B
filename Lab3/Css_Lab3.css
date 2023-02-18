@@ -1,0 +1,51 @@
+body {
+    margin: 0 auto;
+    max-width: 50em;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    padding: 4em 12em;
+    background-color:rgba(111, 126, 209, 0.671);
+    border: 6em solid rgb(71, 72, 131);
+}
+
+header h1 {
+    margin-top: 1em;
+    padding-top: 1em;
+    color: rgb(255, 255, 255);
+}
+
+nav {
+    color: white;
+    text-shadow: 4px 4px 3px grey;
+}
+
+h2 {
+    color: #333;
+}
+
+strong {
+    color: #333;
+}
+
+section p {
+    text-align: justify;
+}
+
+footer {
+    text-align: center;
+}
+
+img {
+    size: 200px;
+    border-style: dotted;
+    margin: 4em;
+}
+
+a {
+    color:rgba(103, 38, 133, 0.671);
+}
+
+a:hover {
+    color: rgb(192, 27, 82);
+}
+
