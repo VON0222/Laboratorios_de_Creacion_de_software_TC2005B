@@ -11,3 +11,7 @@ p#validación{
     color: rgb(54, 138, 21);
     visibility: hidden;
 }
+
+section {
+    text-align: left;
+}
