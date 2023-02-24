@@ -1,0 +1,13 @@
+body {
+    text-align: center;
+    background-color: lightblue;
+}
+
+input {
+    margin: 1em;
+}
+
+p#validación{
+    color: rgb(54, 138, 21);
+    visibility: hidden;
+}

@@ -5,8 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lab6</title>
+    <link rel="stylesheet" type="text/css" href="Lab6.css"/>
 </head>
 <body>
-    
+    <h1>Bienvenido al validador de contraseñas</h1>
+    <input type="text" id="pswd1" name="password1" placeholder="Contraseña" required minlength="4" maxlength="15"><br>
+    <input type="text" id="pswd2" name="password2" placeholder="Repetir contraseña" required minlength="4" maxlength="15"><br>
+    <input type="button" value="Comprobar Contraseña" onclick="comprobar()">
+    <div id="fuerza"></div>
+    <p id="validación">Contraseña validada ✓</p>
+    <script src="Lab6.js"></script>
 </body>
 </html>
