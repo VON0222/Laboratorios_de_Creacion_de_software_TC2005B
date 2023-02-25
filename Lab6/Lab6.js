@@ -27,21 +27,26 @@ function comprobar(){
     }
 }
 
-document.getElementById("pswd1").onkeydown = () => {
+document.getElementById("pswd1").onkeyup = () => {
+    document.getElementById("validación").style.visibility = "hidden";
     let input = document.getElementById("pswd1").value;
-    const regex = /^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/g
+    const regex = /^.*[0-9!@#\$%\^\&*\)\(+=._-].*$/g;
     let mayus = /[A-Z]/g;
     if (input.length < 6){
         document.getElementById("fuerza").innerHTML = "Contraseña debil";
     }
     else {
-        if (input.length < 8 && (regex.test(input) || mayus.test(input))) {
-            document.getElementById("fuerza").innerHTML = "Contraseña media";
+        if (input.length > 8 && regex.test(input) && mayus.test(input)) {
+            document.getElementById("fuerza").innerHTML = "Contraseña fuerte";
         }
         else {
-            if (input.length > 8 && regex.test(input) && mayus.test(input)) {
-                document.getElementById("fuerza").innerHTML = "Contraseña fuerte";
+            if (input.length > 6 && (regex.test(input) || mayus.test(input))) {
+                document.getElementById("fuerza").innerHTML = "Contraseña media";
             }
         }
     }
+}
+
+document.getElementById("pswd2").onkeyup = () => {
+    document.getElementById("validación").style.visibility = "hidden";
 }

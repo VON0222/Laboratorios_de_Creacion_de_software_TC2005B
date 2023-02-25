@@ -9,8 +9,8 @@
 </head>
 <body>
     <h1>Bienvenido al validador de contraseñas</h1>
-    <input type="text" id="pswd1" name="password1" placeholder="Contraseña" required minlength="4" maxlength="15"><br>
-    <input type="text" id="pswd2" name="password2" placeholder="Repetir contraseña" required minlength="4" maxlength="15"><br>
+    <input type="password" id="pswd1" name="pswd1" placeholder="Contraseña" required minlength="4" maxlength="15"><br>
+    <input type="password" id="pswd2" name="pswd2" placeholder="Repetir contraseña" required minlength="4" maxlength="15"><br>
     <input type="button" value="Comprobar Contraseña" onclick="comprobar()">
     <div id="fuerza"></div>
     <p id="validación">Contraseña validada ✓</p>
@@ -19,15 +19,15 @@
         <ol>
             <li><strong>¿Por qué es una buena práctica usar JavaScript para checar que sean válidos los inputs de las formas antes de enviar los datos al servidor?</strong></li>
             <p>
-                Debido a que de esta manera
+                Debido a que de esta manera uno se asegura del correcto funcionamiento del servidor con las formas obtenidas, ademas de evitar que usuarios maliciosos busquen enviar datos erroneos al servidor saltando la validación de la pagina html.
             </p>
             <li><strong>¿Cómo puedes saltarte la seguridad de validaciones hechas con JavaScript?</strong></li>
             <p>
-
+                Simplemente deshabilitando el javascript en el navegador.
             </p>
             <li><strong>Si te puedes saltar la seguridad de las validaciones de JavaScript, entonces ¿por qué la primera pregunta dice que es una buena práctica?</strong></li>
             <p>
-
+                Debido a que permite una mejor experiencia al usuario y evita los retrasos de la comunicación entre el cliente y servidor.
             </p>
         </ol>
     </section>
@@ -36,6 +36,7 @@
             Referencias:
         </h2>
         <p>
+            A. (2020, 7 diciembre). ¿Es seguro validar un formulario con Javascript? https://didacticode.com/seguro-validar-formulario-javascript/<br>
             Cómo obtener claves o contraseñas de redes wifi (cracking «a por naranjas») ¿Es segura una red inalámbrica? (s.f.). https://www.aprenderaprogramar.com/index.php?option=com_content<br>
             Expresiones Regulares - JavaScript | MDN. (2023, 23 febrero). https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Regular_Expressions<br>
             Expresiones y operadores - JavaScript | MDN. (2023, 14 febrero). https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Expressions_and_Operators<br>
@@ -44,6 +45,8 @@
             JavaScript básico, validar cadena sin espacios. (2017, 25 octubre). Stack Overflow en español. https://es.stackoverflow.com/questions/112191/javascript-b%C3%A1sico-validar-cadena-sin-espacios<br>
             JavaScript - Detectar Mayusculas en cadenas. (s.f.). https://www.lawebdelprogramador.com/foros/JavaScript/1214591-Detectar-Mayusculas-en-cadenas.html<br>
             Lasn, T. (2021, 11 agosto). The Best Front-End Hacking Cheatsheets — All in One Place. Medium. https://betterprogramming.pub/modern-frontend-hacking-cheatsheets-df9c2566c72a<br>
+            saltar validacion javascript - Foros Club Delphi. (s.f.). https://www.clubdelphi.com/foros/showthread.php?t=65438<br>
+            Validación de formularios de datos | MDN. (2022, 30 noviembre). https://developer.mozilla.org/es/docs/Learn/Forms/Form_validation<br>
             Wilkins, J. (2021, 27 septiembre). What is the DOM? Document Object Model Meaning in JavaScript. freeCodeCamp.org. https://www.freecodecamp.org/news/what-is-the-dom-document-object-model-meaning-in-javascript/<br>
         </p>
     </section>
