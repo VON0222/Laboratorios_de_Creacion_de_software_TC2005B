@@ -211,6 +211,8 @@ const server = http.createServer((request, response) => {
     }
     else if(request.url === "/Favorito" && request.method === "POST") {
 
+        const filesystem = require("fs");
+
         const datos = [];
         
         request.on('data', (dato) => {
@@ -229,14 +231,19 @@ const server = http.createServer((request, response) => {
             response.write('<h1>Resultados</h1>');
 
             const lab = datos_completos.split('=')[1];
+
+            let texto = 'Lab favorito: ' + lab;
+
+            filesystem.writeFileSync('app.txt', texto);
+
             if (lab === "Lab1") {
-                response.write('Mi lab favorito tambien es el Lab1');
+                response.write('Mi lab favorito tambien es el Lab 1');
             }
             else if (lab === "Lab3") {
-                response.write('Mi lab favorito tambien es el Lab3');
+                response.write('Mi lab favorito tambien es el Lab 3');
             }
             else if (lab === "Lab4") {
-                response.write('Mi lab favorito tambien es el Lab4');
+                response.write('Mi lab favorito tambien es el Lab 4');
             }
 
             response.write("</body></html>");
