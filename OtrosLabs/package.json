@@ -1,0 +1,31 @@
+{
+  "name": "otroslabs",
+  "version": "1.0.0",
+  "description": "Laboratorios a partir del 11",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VON0222/Laboratorios_de_Creacion_de_software_TC2005B.git"
+  },
+  "keywords": [
+    "tec",
+    "node",
+    "labs"
+  ],
+  "author": "José Diego Llaca Castro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VON0222/Laboratorios_de_Creacion_de_software_TC2005B/issues"
+  },
+  "homepage": "https://github.com/VON0222/Laboratorios_de_Creacion_de_software_TC2005B#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
