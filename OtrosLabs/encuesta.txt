@@ -1,2 +1,4 @@
 Lab favorito: Lab 3
- hola
+El archivo package.json es un archivo el cual almacena información variada acerca de un proyecto,
+ desde nombre, version, main, hasta dependencias y repositorio.
+ Este archivo se crea al usar npm init.

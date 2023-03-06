@@ -43,7 +43,7 @@ router.get('/Favorito', (request, response, next) => {
 
 router.post('/Favorito', (request, response, next) => {
     const filesystem = require('fs');
-    let descripcion = "\nEl archivo package.json "
+    let descripcion = "\nEl archivo package.json es un archivo el cual almacena información variada acerca de un proyecto,\ndesde nombre, version, main, hasta dependencias y repositorio. Este archivo se crea al usar npm init."
     let texto = 'Lab favorito: ' + request.body.Labs + descripcion;
     filesystem.writeFileSync('encuesta.txt', texto)
     response.send("Mi lab favorito tambien es el " + request.body.Labs);
