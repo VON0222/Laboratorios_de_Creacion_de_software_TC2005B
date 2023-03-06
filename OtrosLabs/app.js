@@ -1,15 +1,20 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+
 const app = express();
 
-//Middleware
-app.use((request, response, next) => {
-    console.log('Middleware!');
-    next(); //Le permite a la petición avanzar hacia el siguiente middleware
-});
+app.use(bodyParser.urlencoded({extended: false}));
+
+const LabRutas = require('./routes/Labs.routes');
+const LabRutas2 = require('./routes/Labs2.routes');
+
+app.use('/acceso', LabRutas);
+
+app.use('/encuesta', LabRutas2);
 
 app.use((request, response, next) => {
-    console.log('Otro middleware!');
-    response.send('¡Hola mundo!'); //Manda la respuesta
+    response.status(404);
+    response.send('Error: Laboratorio no disponible'); 
 });
 
 app.listen(3000);
