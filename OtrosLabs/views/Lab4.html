@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio 4</title>
+</head>
+<body style="text-align: center">
+    <section>
+        <h1>Ejercicio 1</h1>
+        <input type="button" value="Genera una tabla" onclick="generar_tabla()">
+    </section>
+
+    <section>
+        <h1>Ejercicio 2</h1>
+        <input type="button" value="Suma aleatoria" onclick="suma_aleatoria()">
+    </section>
+
+    <section>
+        <h1>Ejercicio 3</h1>
+        <input type="button" value="Contador de array" onclick="contador(arreglo1)">
+    </section>
+
+    <section>
+        <h1>Ejercicio 4</h1>
+        <input type="button" value="Promedio matriz" onclick="promedios(matriz1)">
+    </section>
+
+    <section>
+        <h1>Ejercicio 5</h1>
+        <input type="button" value="Numero inverso" onclick="inverso(valor)">
+    </section>
+
+    <section>
+        <h1>Presihatitator:</h1>
+        <p>
+            El clima puede probar ser una gran molestia y a veces nos gustaria ir preparados para las condiciones climatica que habra en el dia, por ello los informes del clima son utilies para muchas personas.<br>
+            Este es un invento que permite saber como esta el dia, si la temperatura o el clima cambia solo se debe presionar un boton y el presihatitator mostrara la información correcta.<br><br>
+        </p>
+        <input type="button" value="Hace calor" onclick="presihatitator.hot()">
+        <input type="button" value="Hace frio" onclick="presihatitator.cold()">
+        <input type="button" value="No hay nubes" onclick="presihatitator.sun()">
+        <input type="button" value="Va a llover" onclick="presihatitator.rain()"><br>
+        <input type="button" value="¿Como esta el clima?" onclick="presihatitator.show()">
+    </section>
+
+    <section style="text-align: left;">
+        <h3>Preguntas:</h3>
+        <ol>
+            <li><strong>¿Qué diferencias y semejanzas hay entre Java y JavaScript?</strong></li>
+            <p>
+                En cuanto a semejanzas, tienen un nombre similar, proceden de C y tienen una sintaxis similar.<br>
+                En cuanto a diferencias, java es un lenguaje de programación orientado a objetos puros, mientras que javascript esta basado en prototipos, java es un lenguaje compilado y javascript interpretado, java presenta un tipado fuerte, pero javascript tiene un tipado débil, java se ejecuta en la maquina virtual java y javascript se ejecuta en el navegador y finalmente java es un lenguaje de programación tipo estatico, mientras javascript es de tipo dinamico.
+            </p>
+            <li><strong>¿Qué métodos tiene el objeto Date? (Menciona al menos 5*)</strong></li>
+            <p>
+                El objeto Date tiene muchos métodos, algunos de estos son Date.now(), Date.parse(), Date.UTC(), Date.prototype.getDate(), Date.prototype.getDay(), Date.prototype.getFullYear(), entre otros.
+            </p>
+            <li><strong>¿Qué métodos tienen los arreglos? (Menciona al menos 5*)</strong></li>
+            <p>
+                Los arreglos tambien poseen una gran variedad de métodos, como push(), unshift(), pop(), shift(), slice(), concat(), etc.
+            </p>
+            <li><strong>¿Cómo se declara una variable con alcance local dentro de una función?</strong></li>
+            <p>
+                Declarando la variables como var, let o const dentro de una función, pero en el caso de let y const estas son variables locales con ámbito de bloque.
+            </p>
+            <li><strong>¿Qué implicaciones tiene utilizar variables globales dentro de funciones?</strong></li>
+            <p>
+                Que estas variables podrian interferir en otras funciones si hay varias con el mismo nombre, por lo que siempre se deben declarar las variables pensando en el alcance que se requiere que tengan.
+            </p>
+        </ol>
+    </section>
+
+    <section style="text-align: left;">
+        <h3>Referencias:</h3>
+        <p>
+            Copes, F. (2020, 6 marzo). The JavaScript Beginner's Handbook (2020 Edition). freeCodeCamp.org. https://www.freecodecamp.org/news/the-complete-javascript-handbook-f26b2c71719c/
+            Date - JavaScript | MDN. (2022, 3 diciembre). https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Date
+            Gramática y Tipos - JavaScript | MDN. (2023, 14 febrero). https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Grammar_and_types
+            Math.random() - JavaScript | MDN. (2022, 3 diciembre). https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+            Trazado de una tabla HTML mediante JavaScript y la Interface DOM - Referencia de la API Web | MDN. (2023, 8 febrero). https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces
+            Universidad Europea. (2022, 8 agosto). Diferencias entre Java y JavaScript. https://universidadeuropea.com/blog/diferencias-entre-java-y-javascript/
+            Uniwebsidad. (s.f.). 4.2. Ámbito de las variables (Introducción a JavaScript). https://uniwebsidad.com/libros/javascript/capitulo-4/ambito-de-las-variables
+            Zubikarai, S. (2022, 12 enero). Manual de arreglos en JavaScript: Métodos de arreglos de JS explicados con ejemplos. freeCodeCamp.org. https://www.freecodecamp.org/espanol/news/el-manual-de-arreglos-en-javascript/
+        </p>
+    </section>
+    <a href="/encuesta/Favorito">Encuesta</a><br>
+    <script src="/js/Lab4.js"></script>
+</body>
+</html>

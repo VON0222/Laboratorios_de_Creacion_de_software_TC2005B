@@ -1,0 +1,25 @@
+<%- include('includes/head.ejs') %>
+</head>
+<body>
+    <h1>Encuesta</h1>
+    <form action="/encuesta/Favorito" method="POST">
+    <fieldset>
+            <legend>¿Cuál fue tu lab favorito?:</legend>
+            <div>
+                <input type="radio" id="Lab1" name="Labs" value="Lab 1">
+                <label for="Lab1">Laboratorio 1</label>
+            </div>
+            <div>
+                <input type="radio" id="Lab3" name="Labs" value="Lab 3">
+                <label for="Lab2">Laboratorio 3</label>
+            </div>
+            <div>
+                <input type="radio" id="Lab4" name="Labs" value="Lab 4">
+                <label for="Lab3">Laboratorio 4</label>
+            </div>
+        </fieldset>
+        <br>
+        <input type="submit" value="Elegir">
+    </form>
+</body>
+</html>
