@@ -14,6 +14,10 @@
         <h1>No hay labs disponibles </h1>
     <% } %>  
     <br><br>
+    <% if (ultimo_laboratorio != '') { %>
+            El último laboratorio registrado fue: <%= ultimo_laboratorio %>
+    <% } %>
+    <br><br>
     <a href="/acceso/nuevo">Registrar</a>
     <footer>
         <p>

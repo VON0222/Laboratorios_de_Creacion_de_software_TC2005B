@@ -3,7 +3,19 @@ const path = require('path');
 const Labo = require('../models/labs.model');
 
 exports.get_available = (request, response, next) => {
-    response.render('labs', {labsava: Labo.fetchAll()});
+
+    const cookies = request.get('Cookie') || '';
+
+    let consultas = cookies.split('=')[1] || 0;
+
+    consultas++;
+
+    response.setHeader('Set-Cookie', 'consultas=' + consultas + '; HttpOnly');
+    
+    response.render('labs', {
+        labsava: Labo.fetchAll(),
+        ultimo_laboratorio: request.session.ultimo_laboratorio || '',
+    });
 };
 
 exports.get_nuevo = (request, response, next) => {
@@ -18,6 +30,8 @@ exports.post_nuevo = (request, response, next) => {
     });
 
     laboratorio.save();
+
+    request.session.ultimo_laboratorio = laboratorio.nombre;
 
     response.status(300).redirect('/acceso/available');
 };
