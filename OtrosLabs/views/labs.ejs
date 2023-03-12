@@ -2,13 +2,26 @@
 </head>
 <body>
     <h1>Labs disponibles</h1>
-<% if (labsava.length > 0) { %>
-    <ul>
-        <% for (let lab of labsava) { %>
-            <li><%= lab %></li>
-        <% } %>
-    </ul>
-<% } else { %>
-    <h1>No hay labs disponibles </h1>
-<% } %>  
-<%- include('includes/footer.ejs') %> 
+    <a href="/acceso/nuevo">Registrar</a>
+    <br><br>
+    <% if (labsava.length > 0) { %>
+        <ul>
+            <% for (let lab of labsava) { %>
+                <li><%= lab.nombre %> hecho: <%= lab.fecha %></li>
+            <% } %>
+        </ul>
+    <% } else { %>
+        <h1>No hay labs disponibles </h1>
+    <% } %>  
+    <br><br>
+    <a href="/acceso/nuevo">Registrar</a>
+    <footer>
+        <p>
+            Editor de HTML usado:<br>
+            <a href="https://code.visualstudio.com/">Visual Studio Code</a><br>
+            Mi correo:<br>
+            <a href="mailto:A01704793@tec.mx">A01704793@tec.mx</a>
+        </p>
+        </footer>
+    </body>
+    </html> 

@@ -1,1 +1,5 @@
-Lab favorito: Lab 1
+Lab favorito: Lab 3
+El estilo MVC es de gran utilidad ya que reduce las responsabilidades que carga 
+    cada segmento del codigo aplicando el principio SRP lo que reduce la deuda tecnica
+    Dicho esto, no veo ninguna desventaja, más que el tiempo necesario para establecer 
+    este estilo arquitectonico durante el desarrollo.
