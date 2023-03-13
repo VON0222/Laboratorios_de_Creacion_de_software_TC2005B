@@ -12,10 +12,22 @@ exports.get_available = (request, response, next) => {
 
     response.setHeader('Set-Cookie', 'consultas=' + consultas + '; HttpOnly');
     
-    response.render('labs', {
-        labsava: Labo.fetchAll(),
-        ultimo_laboratorio: request.session.ultimo_laboratorio || '',
+    const id = request.params.id || 0;
+
+    Labo.fetch(id)
+    .then(([rows, fieldData]) => {
+        console.log(rows);
+        
+        response.render('labs', { 
+            labsava: rows,
+            ultimo_laboratorio: request.session.ultimo_laboratorio || '',
+        });
+    })
+
+    .catch(error => {
+        console.log(error);
     });
+
 };
 
 exports.get_nuevo = (request, response, next) => {
@@ -29,11 +41,14 @@ exports.post_nuevo = (request, response, next) => {
         fecha: request.body.fecha,
     });
 
-    laboratorio.save();
+    laboratorio.save()
+    .then(([rows, fieldData]) => {
+        request.session.ultimo_laboratorio = laboratorio.nombre;
 
-    request.session.ultimo_laboratorio = laboratorio.nombre;
+        response.status(300).redirect('/acceso/available');
+    })
+    .catch(error => console.log(error));
 
-    response.status(300).redirect('/acceso/available');
 };
 
 exports.get_Favorito = (request, response, next) => {
@@ -77,10 +92,13 @@ response.send(html);
 
 exports.post_Favorito = (request, response, next) => {
     const filesystem = require('fs');
-    let descripcion = `\nEl estilo MVC es de gran utilidad ya que reduce las responsabilidades que carga 
-    cada segmento del codigo aplicando el principio SRP lo que reduce la deuda tecnica
-    Dicho esto, no veo ninguna desventaja, más que el tiempo necesario para establecer 
-    este estilo arquitectonico durante el desarrollo.`;
+    let descripcion = `La ventaja de escribir el codigo SQL en la capa del modelo es que 
+    se puede proteger la base de datos de ataques de SQL injection ya que de esta manera 
+    se evita que el codigo llegue directo a la bse de datos ademas de poder limpiar los 
+    inputs antes de ser mandados a la base de datos.
+    El SQL injection es un metodo para tratar de burlar la seguridad de una base de datos, 
+    de esta manera siendo capas de extraer o insertar datos a la base de datos dando como }
+    input para la pagina parte de un codigo.`;
     let texto = 'Lab favorito: ' + request.body.Labs + descripcion;
     filesystem.writeFileSync('encuesta.txt', texto);
     ans = request.body.Labs;

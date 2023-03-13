@@ -4,6 +4,8 @@ const router = express.Router();
 
 const labsController = require('../controllers/Labs.controller');
 
+router.get('/available/:id', labsController.get_available);
+
 router.get('/available', labsController.get_available);
 
 router.get('/nuevo', labsController.get_nuevo);
