@@ -5,8 +5,20 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Laboratorio</title>
-        <a href="/users/logout">
-            Salir
-        </a>
+        <% if (!isLoggedIn) { %>
+            <a href="/users/signup">
+                Sign Up
+            </a>
+
+            <a href="/users/login">
+                Log In
+            </a>
+        <% } %>
+        <% if (isLoggedIn) { %>
+            <span>Hola <%= nombre %>  | </span>
+            <a href="/users/logout">
+                Salir
+            </a>
+        <% } %>
     
     

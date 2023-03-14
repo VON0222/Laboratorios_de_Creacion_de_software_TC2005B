@@ -2,6 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const session = require('express-session');
+const csrf = require('csurf');
+const isAuth = require('./util/is-auth');
+
 
 const app = express();
 
@@ -18,6 +21,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(bodyParser.urlencoded({extended: false}));
 
+const csrfProtection = csrf();
+
+app.use(csrfProtection);
+
 const rutasUsers = require('./routes/users.routes');
 
 app.use('/users', rutasUsers);
@@ -25,9 +32,9 @@ app.use('/users', rutasUsers);
 const LabRutas = require('./routes/Labs.routes');
 const LabRutas2 = require('./routes/Labs2.routes');
 
-app.use('/acceso', LabRutas);
+app.use('/acceso', isAuth, LabRutas);
 
-app.use('/encuesta', LabRutas2);
+app.use('/encuesta', isAuth, LabRutas2);
 
 app.use((request, response, next) => {
     response.status(404);

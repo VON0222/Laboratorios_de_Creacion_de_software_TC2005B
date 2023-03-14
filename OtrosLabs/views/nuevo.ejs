@@ -7,6 +7,8 @@
 
         <form action="/acceso/nuevo" method="POST">
 
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
+
             <label for="nombre">Nombre:</label>
             <input required name="nombre" id="nombre" type="text" placeholder="Lab nuevo">
 

@@ -21,6 +21,8 @@ exports.get_available = (request, response, next) => {
         response.render('labs', { 
             labsava: rows,
             ultimo_laboratorio: request.session.ultimo_laboratorio || '',
+            isLoggedIn: request.session.isLoggedIn || false,
+            nombre: request.session.nombre || '',
         });
     })
 
@@ -31,7 +33,11 @@ exports.get_available = (request, response, next) => {
 };
 
 exports.get_nuevo = (request, response, next) => {
-    response.render('nuevo');
+    response.render('nuevo', {
+        isLoggedIn: request.session.isLoggedIn || false,
+        nombre: request.session.nombre || '',
+        csrfToken: request.csrfToken(),
+    });
 };
 
 exports.post_nuevo = (request, response, next) => {
@@ -102,7 +108,11 @@ exports.post_Favorito = (request, response, next) => {
     let texto = 'Lab favorito: ' + request.body.Labs + descripcion;
     filesystem.writeFileSync('encuesta.txt', texto);
     ans = request.body.Labs;
-    response.render('Resultados', {res: ans});
+    response.render('Resultados', {
+        res: ans, 
+        isLoggedIn: request.session.isLoggedIn || false,
+        nombre: request.session.nombre || '',
+    });
 };
 
 exports.get_lab4 = (request, response, next) => {

@@ -1,0 +1,34 @@
+<%- include('includes/head.ejs') %>
+
+    <h1>Regístrate</h1>
+
+    <br><br>
+
+    <form action="/users/signup" method="POST">
+
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
+
+        <label for="nombre">Nombre:</label>
+        <input required name="nombre" id="nombre" type="text" placeholder="Eduardo Daniel Juárez Pineda">
+
+        <label for="username">Nombre de usuario:</label>
+        <input name="username" id="username" type="text" placeholder="lalo">
+
+        <label for="password">Password:</label>
+        <input name="password" id="password" type="password" >
+
+        <br><br>
+
+        <input type="submit" value="Registrar">
+
+    </form>
+    <footer>
+        <p>
+            Editor de HTML usado:<br>
+            <a href="https://code.visualstudio.com/">Visual Studio Code</a><br>
+            Mi correo:<br>
+            <a href="mailto:A01704793@tec.mx">A01704793@tec.mx</a>
+        </p>
+    </footer>
+</body>
+</html>

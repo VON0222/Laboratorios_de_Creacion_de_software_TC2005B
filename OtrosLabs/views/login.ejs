@@ -1,0 +1,36 @@
+<%- include('includes/head.ejs') %>
+
+<h1>Entrar</h1>
+
+<% if(mensaje) { %>
+        <%= mensaje %>
+<% } %>
+
+<br><br>
+
+<form action="/users/login" method="POST">
+
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
+
+    <label for="username">Nombre de usuario:</label>
+    <input name="username" id="username" type="text" placeholder="lalo">
+
+    <label for="password">Password:</label>
+    <input name="password" id="password" type="password" >
+
+    <br><br>
+
+    <input type="submit" value="Entrar">
+
+</form>
+
+<footer>
+    <p>
+        Editor de HTML usado:<br>
+        <a href="https://code.visualstudio.com/">Visual Studio Code</a><br>
+        Mi correo:<br>
+        <a href="mailto:A01704793@tec.mx">A01704793@tec.mx</a>
+    </p>
+</footer>
+</body>
+</html>
