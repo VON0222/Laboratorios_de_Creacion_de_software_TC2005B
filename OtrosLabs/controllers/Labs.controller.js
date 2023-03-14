@@ -23,6 +23,7 @@ exports.get_available = (request, response, next) => {
             ultimo_laboratorio: request.session.ultimo_laboratorio || '',
             isLoggedIn: request.session.isLoggedIn || false,
             nombre: request.session.nombre || '',
+            privilegios: request.session.privilegios || [],
         });
     })
 
@@ -70,7 +71,9 @@ let html = `
         </head>
         <body>
             <h1>Encuesta</h1>
+
             <form action="/encuesta/Favorito" method="POST">
+            <input type="hidden" name="_csrf" value="` + request.csrfToken() + `" >
             <fieldset>
                     <legend>¿Cuál fue tu lab favorito?:</legend>
                     <div>

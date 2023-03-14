@@ -1,5 +1,7 @@
-Lab favorito: Lab 4
-El estilo MVC es de gran utilidad ya que reduce las responsabilidades que carga 
-    cada segmento del codigo aplicando el principio SRP lo que reduce la deuda tecnica
-    Dicho esto, no veo ninguna desventaja, más que el tiempo necesario para establecer 
-    este estilo arquitectonico durante el desarrollo.
+Lab favorito: Lab 1La ventaja de escribir el codigo SQL en la capa del modelo es que 
+    se puede proteger la base de datos de ataques de SQL injection ya que de esta manera 
+    se evita que el codigo llegue directo a la bse de datos ademas de poder limpiar los 
+    inputs antes de ser mandados a la base de datos.
+    El SQL injection es un metodo para tratar de burlar la seguridad de una base de datos, 
+    de esta manera siendo capas de extraer o insertar datos a la base de datos dando como }
+    input para la pagina parte de un codigo.

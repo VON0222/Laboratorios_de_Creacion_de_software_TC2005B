@@ -2,7 +2,9 @@
 </head>
 <body>
     <h1>Labs disponibles</h1>
-    <a href="/acceso/nuevo">Registrar</a>
+    <% if (privilegios.indexOf('crear_labs') >= 0) {%>
+        <a href="/acceso/nuevo">Registrar</a>
+    <% } %>
     <br><br>
     <% if (labsava.length > 0) { %>
         <ul>
@@ -18,7 +20,9 @@
             El último laboratorio registrado fue: <%= ultimo_laboratorio %>
     <% } %>
     <br><br>
-    <a href="/acceso/nuevo">Registrar</a>
+    <% if (privilegios.indexOf('crear_labs') >= 0) {%>
+        <a href="/acceso/nuevo">Registrar</a>
+    <% } %>
     <footer>
         <p>
             <a href="/acceso/select">Revisar Labs</a><br>
