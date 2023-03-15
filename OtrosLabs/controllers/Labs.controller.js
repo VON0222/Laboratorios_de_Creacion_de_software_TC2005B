@@ -101,13 +101,36 @@ response.send(html);
 
 exports.post_Favorito = (request, response, next) => {
     const filesystem = require('fs');
-    let descripcion = `La ventaja de escribir el codigo SQL en la capa del modelo es que 
-    se puede proteger la base de datos de ataques de SQL injection ya que de esta manera 
-    se evita que el codigo llegue directo a la bse de datos ademas de poder limpiar los 
-    inputs antes de ser mandados a la base de datos.
-    El SQL injection es un metodo para tratar de burlar la seguridad de una base de datos, 
-    de esta manera siendo capas de extraer o insertar datos a la base de datos dando como }
-    input para la pagina parte de un codigo.`;
+    let descripcion = `Lab18:
+    -¿Qué otras formas de autentificación existen?
+    Hay varias formas de autentificación, como por ejemplo identificador y contraseña, 
+    identificador y contraseña OTP, verificación biometrica, identificador y 
+    contraseña sobre tarjeta inteligente, etc.
+
+    Lab19:
+    -¿En qué consiste el control de acceso basado en roles?
+    El control de acceso basado en roles consiste en asignarles a cada usuario uno o 
+    más roles, los cuales tienen ciertos privilegios que les permiten realizar 
+    ciertas acciones en el software. De esta manera manejando diversos niveles de 
+    autorización dependiendo del rol del usuario.
+    -Sistema con RBAC
+        *Ventajas: Permiten un mejor manejo de autorización, se maneja la seguridad a
+        un nivel más granular, no es necesario modificar las politicas cuando algun 
+        usuario deja de formar parte sel sistema, los nuevos usuarios pueden activar
+        autorizaciones rapida y facilmente y permite a las empresas que implementan 
+        este sistema de acceso ahorrar grandes sumas de dinero ya que no se invierte 
+        en modificar las politicas.
+        *Desventajas: No tiene la capacidad de manejar permisos de manera individual.
+    -Sistema con ACL
+        *Ventajas: Permite el manejo de seguridad a nivel de usuario individual, 
+        permite el manejo del flujo de trafico en una red lo que provoca un mejor 
+        desmpeño del sistema, permite especificar que areas de un servidor, red, o 
+        servicio se puede acceder por que usuario.
+        *Desventajas: Debido a su manejo tan especifico de la seguridad y 
+        autorizaciones se debe modificar las politicas para asi dar acceso a nuevos 
+        usuarios o remover el acceso de usuarios fuera de uso, esto puede elebar los 
+        costos de soporte. En general RBAC es más efectivo que ACL en cuanto a 
+        administración y seguridad se refiere.`;
     let texto = 'Lab favorito: ' + request.body.Labs + descripcion;
     filesystem.writeFileSync('encuesta.txt', texto);
     ans = request.body.Labs;
