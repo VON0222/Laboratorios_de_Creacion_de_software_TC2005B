@@ -42,10 +42,13 @@ exports.get_nuevo = (request, response, next) => {
 };
 
 exports.post_nuevo = (request, response, next) => {
+
+    console.log(request.file);
     
     const laboratorio = new Labo({
         nombre: request.body.nombre,
         fecha: request.body.fecha,
+        imagen: request.file.filename,
     });
 
     laboratorio.save()

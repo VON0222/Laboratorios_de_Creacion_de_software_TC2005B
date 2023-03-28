@@ -5,15 +5,18 @@
 
         <br><br>
 
-        <form action="/acceso/nuevo" method="POST">
+        <form action="/acceso/nuevo" method="POST" enctype="multipart/form-data">
 
             <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
 
             <label for="nombre">Nombre:</label>
             <input required name="nombre" id="nombre" type="text" placeholder="Lab nuevo">
 
-            <label for="nombre">Fecha:</label>
+            <label for="fecha">Fecha:</label>
             <input required name="fecha" id="fecha" type="text" placeholder="2000/01/01">
+
+            <label for="imagen">Imagen:</label>
+            <input name="imagen" id="imagen" type="file">
 
             <br><br>
 

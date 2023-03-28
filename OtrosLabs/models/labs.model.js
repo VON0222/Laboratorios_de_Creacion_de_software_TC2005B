@@ -35,13 +35,14 @@ module.exports = class Labo {
     constructor(nuevo_lab) {
         this.nombre = nuevo_lab.nombre || "Ultimo Lab";
         this.fecha = nuevo_lab.fecha || "2000/01/01";
+        this.imagen = nuevo_lab.imagen || "lab.jpg";
     }
 
     save() {
         return db.execute(
-            `INSERT INTO lab(nombre, fecha) 
-            VALUES(?, ?)`,
-            [this.nombre, this.fecha]
+            `INSERT INTO lab(nombre, fecha, imagen) 
+            VALUES(?, ?, ?)`,
+            [this.nombre, this.fecha, this.imagen]
         );
     }
 

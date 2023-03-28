@@ -4,6 +4,7 @@ const path = require('path');
 const session = require('express-session');
 const csrf = require('csurf');
 const isAuth = require('./util/is-auth');
+const multer = require('multer')
 
 
 const app = express();
@@ -20,6 +21,18 @@ app.use(session({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(bodyParser.urlencoded({extended: false}));
+
+const fileStorage = multer.diskStorage({
+    destination: (request, file, callback) => {
+        callback(null, 'public/uploads');
+    },
+    filename: (request, file, callback) => {
+        callback(null, new Date().getMilliseconds() + '-' + file.originalname
+        );
+    },
+});
+
+app.use(multer({ storage: fileStorage }).single('imagen'));
 
 const csrfProtection = csrf();
 

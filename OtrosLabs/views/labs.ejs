@@ -10,6 +10,7 @@
         <ul>
             <% for (let lab of labsava) { %>
                 <li><%= lab.nombre %> hecho: <%= lab.fecha %></li>
+                <img src="/uploads/<%= lab.imagen %>" alt="Placeholder image" style>
             <% } %>
         </ul>
     <% } else { %>
