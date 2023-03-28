@@ -2,6 +2,16 @@ const path = require('path');
 
 const Labo = require('../models/labs.model');
 
+exports.get_buscar = (request, response, next) => {
+    Labo.find(request.params.valor_busqueda).then(([rows, fieldData]) => {
+        response.status(200).json({labsava: rows});
+    })
+    .catch((error) => {
+        console.log(error);
+        response.status(500).json({message: "Internal Server Error"});
+    });
+}
+
 exports.get_available = (request, response, next) => {
 
     const cookies = request.get('Cookie') || '';

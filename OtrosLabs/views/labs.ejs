@@ -5,7 +5,13 @@
     <% if (privilegios.indexOf('crear_labs') >= 0) {%>
         <a href="/acceso/nuevo">Registrar</a>
     <% } %>
+
     <br><br>
+    <label for="buscar">Buscar:</label>
+    <input name="buscar" id="buscar" type="text">
+    <br><br>
+
+    <div id="resultados">
     <% if (labsava.length > 0) { %>
         <ul>
             <% for (let lab of labsava) { %>
@@ -16,6 +22,8 @@
     <% } else { %>
         <h1>No hay labs disponibles </h1>
     <% } %>  
+    </div>
+
     <br><br>
     <% if (ultimo_laboratorio != '') { %>
             El último laboratorio registrado fue: <%= ultimo_laboratorio %>
@@ -24,6 +32,41 @@
     <% if (privilegios.indexOf('crear_labs') >= 0) {%>
         <a href="/acceso/nuevo">Registrar</a>
     <% } %>
+
+    <script>
+        document.getElementById("buscar").onkeyup = () => {
+            const valor_busqueda = document.getElementById("buscar").value;
+
+            fetch('/acceso/buscar/' + valor_busqueda, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            }).then(result => {
+                return result.json(); //Regresa otra promesa
+            }).then(data => {
+                console.log(data);
+
+                let resultados = "";
+
+                if (data.labsava.length > 0) {
+                    resultados += `<ul>`;
+                    for (let lab of data.labsava) {
+                        resultados += `<li>${lab.nombre} hecho: ${lab.fecha}</li>
+                        <img src="/uploads/${lab.imagen}" alt="Placeholder image" style>`;
+                    }
+                    resultados += `</ul>`;
+                } else {
+                    resultados += `<h1>No hay labs disponibles </h1>`;
+                }
+
+                document.getElementById("resultados").innerHTML = resultados
+            }).catch(err => {
+                console.log(err);
+            });
+        }
+    </script>
+
     <footer>
         <p>
             <a href="/acceso/select">Revisar Labs</a><br>

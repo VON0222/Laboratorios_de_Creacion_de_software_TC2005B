@@ -1,36 +1,5 @@
 const db = require('../util/database');
 
-/*const labsready = [
-    {
-        nombre: "Lab3",
-        fecha: "14/02/2023", 
-    },
-    {
-        nombre: "Lab4",
-        fecha: "16/02/2023", 
-    },
-    {
-        nombre: "Lab5",
-        fecha: "17/02/2023", 
-    },
-    {
-        nombre: "Lab6",
-        fecha: "20/02/2023", 
-    },
-    {
-        nombre: "Lab8",
-        fecha: "23/02/2023", 
-    },
-    {
-        nombre: "Lab10",
-        fecha: "27/02/2023", 
-    },
-    {
-        nombre: "Lab11",
-        fecha: "28/02/2023", 
-    },
-];*/
-
 module.exports = class Labo {
     constructor(nuevo_lab) {
         this.nombre = nuevo_lab.nombre || "Ultimo Lab";
@@ -53,5 +22,17 @@ module.exports = class Labo {
             return db.execute(query, [id]);
         } 
         return db.execute(query);
+    }
+
+    static find(valor_busqueda) {
+        return db.execute(`
+            SELECT *
+            FROM lab
+            WHERE nombre LIKE ? OR fecha LIKE ?
+            `, 
+            [
+                '%' + valor_busqueda + '%', '%' + valor_busqueda + '%'
+            ]
+        );
     }
 }
