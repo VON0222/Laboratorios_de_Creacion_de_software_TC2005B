@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Laboratorio</title>
+        <a href="/users/signup">
+            Sign Up
+        </a>
+
+        <a href="/users/login">
+            Log In
+        </a>
+    </head>
+    <body>
+
+    <h1>Bienvenido/a</h1>
+    <p>Temperatura: <%= (weather.main.temp - 273.15).toFixed(2) %>°C</p>
+    <p>Descripción: <%= weather.weather[0].description %></p>
+
+    </body>
+</html>

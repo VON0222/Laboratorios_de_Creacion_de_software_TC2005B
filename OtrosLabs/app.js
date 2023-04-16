@@ -4,8 +4,9 @@ const path = require('path');
 const session = require('express-session');
 const csrf = require('csurf');
 const isAuth = require('./util/is-auth');
-const multer = require('multer')
-
+const multer = require('multer');
+const request = require('request');
+require("dotenv").config();
 
 const app = express();
 
@@ -49,6 +50,28 @@ const LabRutas2 = require('./routes/Labs2.routes');
 app.use('/acceso', isAuth, LabRutas);
 
 app.use('/encuesta', isAuth, LabRutas2);
+
+app.get('/', (req, res) => {
+    request(`http://api.openweathermap.org/geo/1.0/direct?q=Mexico&limit=5&appid=${process.env.API_KEY}`, (error, response, body) => {
+        if (!error && response.statusCode === 200) {
+            const respuesta = JSON.parse(body);
+            const latitud = respuesta[0].lat;
+            const longitud = respuesta[0].lon;
+            request(`https://api.openweathermap.org/data/2.5/weather?lat=` + latitud + `&lon=` + longitud + `&appid=${process.env.API_KEY}`, (error, response, body) => {
+                if (!error && response.statusCode === 200) {
+                    const weather = JSON.parse(body);
+                    res.render('clima.ejs', { weather });
+                } else {
+                    console.error(error);
+                    res.send('Error al obtener la información del clima');
+                }
+            });
+        } else {
+            console.error(error)
+            res.send('Error al obtener la información de la localización')
+        }
+    });
+});
 
 app.use((request, response, next) => {
     response.status(404);
